@@ -1,0 +1,30 @@
+{
+  "name": "b-log",
+  "version": "1.0.0",
+  "description": "A log of your baby's daily activity",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateoholman/b-log.git"
+  },
+  "keywords": [],
+  "author": "Matthew Holman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mateoholman/b-log/issues"
+  },
+  "homepage": "https://github.com/mateoholman/b-log#readme",
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "dateformat": "^1.0.12",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "moment": "^2.15.2",
+    "mongoose": "^4.6.5",
+    "nodemon": "^1.11.0"
+  }
+}

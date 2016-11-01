@@ -1,0 +1,14 @@
+h1, h2 {
+  text-align: center;
+}
+
+hr {
+  color: black;
+  background-color: black;
+  height: .05em;
+  width: 15em;
+}
+
+.glyphicon-pencil, glyphicon-remove {
+  margin-right: 10px;
+}

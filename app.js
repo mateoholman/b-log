@@ -6,6 +6,7 @@ const express = require('express');
 const app = express();
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
+const dateFormat = require('dateformat');
 
 // establish connection to the database
 const mongoose = require('mongoose');
@@ -26,7 +27,11 @@ mongoose.Promise = global.Promise;
 
 
 // Set our routes
-
+const activities = require('./assets/routes/ActivitiesRouter');
+app.use('/activities', activities);
+app.use('/*', function (req, res, next) {
+  res.redirect('/activities');
+});
 
 // Handle errors
 app.use(function (err, req, res, next) {
