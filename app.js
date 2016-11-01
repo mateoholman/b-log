@@ -6,7 +6,6 @@ const express = require('express');
 const app = express();
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
-const dateFormat = require('dateformat');
 
 // establish connection to the database
 const mongoose = require('mongoose');
@@ -24,7 +23,14 @@ mongoose.Promise = global.Promise;
 
 // Use our own middleware to look for a _method query and change the
 // request method type to match the query type.
+app.use(function(req,res,next) {
+  if (req.query._method){
+    req.method = req.query._method
+  }
+  next();
+});
 
+//Hover Events
 
 // Set our routes
 const activities = require('./assets/routes/ActivitiesRouter');

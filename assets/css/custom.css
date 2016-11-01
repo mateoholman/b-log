@@ -9,6 +9,14 @@ hr {
   width: 15em;
 }
 
-.glyphicon-pencil, glyphicon-remove {
+.glyphicon-pencil, .glyphicon-remove {
   margin-right: 10px;
+}
+
+.glyphicon-remove:hover {
+  color: red;
+}
+
+.glyphicon-pencil:hover {
+  color: yellow;
 }
