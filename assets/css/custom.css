@@ -20,3 +20,7 @@ hr {
 .glyphicon-pencil:hover {
   color: yellow;
 }
+
+#btnHolder {
+  text-align: center;
+}

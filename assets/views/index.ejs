@@ -21,39 +21,9 @@
 
 <body>
 
-  <h2>Today's Activity</h2>
-
-  <form class="form-horizontal" action="/activities" method="post">
-  <div class="form-group">
-    <label for="inputTime" class="col-sm-2 control-label">Time</label>
-    <div class="col-sm-2">
-      <input type="time" name="time" class="form-control" id="inputTime">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputActivity" class="col-sm-2 control-label">Activity</label>
-    <div class="col-sm-2">
-      <select class="form-control" name="activity" type="text" id="inputActivity">
-        <option>Feed</option>
-        <option>Sleep</option>
-        <option>Diaper</option>
-      </select>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputNote" class="col-sm-2 control-label">Note</label>
-    <div class="col-sm-4">
-      <input type="text" name="note" class="form-control" id="inputNote">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Submit</button>
-    </div>
-  </div>
-  </form>
-
-  <table class="table table-condensed">
+  <h2>Baby's Activity</h2>
+  <hr>
+  <table class="table table-condensed table-hover">
     <thead>
       <th>Time</th>
       <th>Activity</th>
@@ -67,7 +37,7 @@
           <td><%= activity.activity %></td>
           <td><%= activity.note %></td>
           <td>
-            <a href="#"%>>
+            <a href="activities/edit/<%=activity.id%>">
               <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             </a>
             <a href="/activities/<%=activity.id%>?_method=DELETE">
@@ -78,6 +48,10 @@
       <% }) %>
     </tbody>
   </table>
+
+<div class="row" id="btnHolder">
+  <a class="btn btn-primary btn-lg" href="/activities/new" role="button">Add New</a>
+</div>
 
   <!--Import jQuery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

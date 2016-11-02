@@ -6,8 +6,8 @@ const ActivitiesController = require('../controllers/ActivitiesController');
 
 /* GET */
 router.get('/', ActivitiesController.list);
-
-/* GET */
+router.get('/new', ActivitiesController.new);
+router.get('/edit/:id', ActivitiesController.edit);
 router.get('/:id', ActivitiesController.show);
 
 /* POST */

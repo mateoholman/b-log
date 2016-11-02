@@ -15,6 +15,16 @@ module.exports = {
     .catch(err => next(err));
   },
 
+  new: function (req, res, next) {
+    res.render('new');
+  },
+
+  edit: function (req, res, next) {
+    DailyLogModel.findById(req.params.id).exec()
+    .then(activity => res.render('edit', {activity: activity}))
+    .catch(err => next(err));
+  },
+
   create: function (req, res, next){
     new DailyLogModel({
       date: req.body.date,

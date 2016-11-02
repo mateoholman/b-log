@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Baby Log - Edit Entry</title>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/custom.css" type="text/css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <h2>Edit Activity</h2>
+
+  <form class="form-horizontal" action="/activities" method="post">
+  <div class="form-group">
+    <label for="inputTime" class="col-sm-2 control-label">Time</label>
+    <div class="col-sm-2">
+      <input type="time" name="time" class="form-control" id="inputTime" value="<%= activity.date.getHours() + ":" + activity.date.getSeconds() %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputActivity" class="col-sm-2 control-label">Activity</label>
+    <div class="col-sm-2">
+      <select class="form-control" name="activity" type="text" id="inputActivity">
+        <option>Feed</option>
+        <option>Sleep</option>
+        <option>Diaper</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputNote" class="col-sm-2 control-label">Note</label>
+    <div class="col-sm-4">
+      <input type="text" name="note" class="form-control" id="inputNote" value="<%=activity.note%>">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <a class="btn btn-danger" href="/activities" role="button">Cancel</a>
+    </div>
+  </div>
+  </form>
+
+  <!--Import jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
