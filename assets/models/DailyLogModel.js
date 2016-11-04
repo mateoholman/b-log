@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 // define our Schema
 const dailyLogSchema = new Schema ({
-  'date': { type: Date, default: Date.now },
+  'time': String,
   'activity' : String,
   'note' : String
 });

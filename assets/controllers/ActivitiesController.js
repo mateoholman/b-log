@@ -25,9 +25,10 @@ module.exports = {
     .catch(err => next(err));
   },
 
+  /*Need to convert the date input to a proper date object*/
   create: function (req, res, next){
     new DailyLogModel({
-      date: req.body.date,
+      time: req.body.time,
       activity: req.body.activity,
       note: req.body.note
     }).save()
@@ -36,14 +37,12 @@ module.exports = {
   },
 
   update: function (req, res, next){
-    DailyLogModel.findById(req.params.id).exec()
-    .then(activity => {
-      activity.date = req.body.date;
-      activity.activity = req.body.activity;
-      activity.note = req.body.note;
-      return activity.save();
-    })
-    .then(activity => res.json(activity))
+    DailyLogModel.findByIdAndUpdate(req.params.id, {
+      time: req.body.time,
+      activity: req.body.activity,
+      note: req.body.note
+    }, {new: true, runValidators: true}).exec()
+    .then(() => res.redirect('/activities'))
     .catch(err => next(err));
   },
 

@@ -21,11 +21,11 @@
 
   <h2>Edit Activity</h2>
 
-  <form class="form-horizontal" action="/activities" method="post">
+  <form class="form-horizontal" action="/activities/<%=activity.id%>?_method=PUT" method="POST">
   <div class="form-group">
     <label for="inputTime" class="col-sm-2 control-label">Time</label>
     <div class="col-sm-2">
-      <input type="time" name="time" class="form-control" id="inputTime" value="<%= activity.date.getHours() + ":" + activity.date.getSeconds() %>">
+      <input type="time" name="time" class="form-control" id="inputTime" value="<%= activity.time %>">
     </div>
   </div>
   <div class="form-group">
