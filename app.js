@@ -12,6 +12,7 @@ const mongoose = require('mongoose');
 const mongodbUri = 'mongodb://heroku_pccndw0m:bufc9283nu1gr73figms0u6nou@ds163397.mlab.com:63397/heroku_pccndw0m';
 mongoose.connect(mongodbUri);
 const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 
 // set environment variables
 app.use(express.static(__dirname + '/assets'));
@@ -32,8 +33,6 @@ app.use(function(req,res,next) {
   next();
 });
 
-//Hover Events
-
 // Set our routes
 const activities = require('./assets/routes/ActivitiesRouter');
 app.use('/activities', activities);
@@ -47,5 +46,5 @@ app.use(function (err, req, res, next) {
 });
 
 // Set up our server
-const port = 3000;
-app.listen(port, () => console.log(`Server listening on: ${port}`));
+// const port = 3000;
+// app.listen(port, () => console.log(`Server listening on: ${port}`));
