@@ -7,16 +7,18 @@ const app = express();
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
 
-// establish connection to the database
+// Establish connection to the database before starting the application server.
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/b-log');
+const mongodbUri = 'mongodb://heroku_pccndw0m:bufc9283nu1gr73figms0u6nou@ds163397.mlab.com:63397/heroku_pccndw0m';
+mongoose.connect(mongodbUri);
+const db = mongoose.connection;
 
 // set environment variables
+app.use(express.static(__dirname + '/assets'));
 app.set('views', path.join(__dirname, '/assets/views'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/assets'));
 
 // Use native promises
 mongoose.Promise = global.Promise;
